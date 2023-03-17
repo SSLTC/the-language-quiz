@@ -16,6 +16,8 @@ require_once 'classes/Word.php';
 
 session_start();
 
+$showResult = false;
+
 // Start the game
 // Don't change anything in this file
 // The LanguageGame class will be your starting point
@@ -23,3 +25,16 @@ $game = new LanguageGame();
 $game->run();
 
 require 'view.php';
+
+/*
+🌼 Nice to have (doable)
+
+    Retain the user score when he or she plays again with another word
+    Allow a user to click a reset button and start over completely
+
+🌳 Nice to have (hard)
+
+    Have a phase before the quiz starts where you ask the nickname from the user
+    Scoring will now be split in right and wrong answers
+    Once the number of 10 right or wrong answers is reached, show an ending screen with the scoring
+*/

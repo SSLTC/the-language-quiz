@@ -11,24 +11,25 @@
 <body>
 <div class="container">
 	<!-- TODO: add a form for the user to play the game -->
+    <?php if ($showResult): ?>
+        <div class="alert <?= $alertRole ?>" role="alert">
+            <h4 class="alert-heading"><?= $result ?></h4>
+        </div>
+    <?php endif; ?>
     <h1>Language Quiz</h1>
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="get">
-    <fieldset>
+        <fieldset>
             <legend>Write down the correct translation</legend>
-
+            <h2><?= $_SESSION['wordToTranslate'] ?? ''; ?></h2>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="wordToTranslate">Word to translate:</label>
-                    <input type="text" name="wordToTranslate" id="wordToTranslate" class="form-control" value="<?= $_SESSION['wordToTranslate'] ?? ''; ?>" />
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="translation">Translation:</label>
-                    <input type="text" name="translation" id="translation" class="form-control" value="<?= $_SESSION['translation'] ?? ''; ?>" />
+                    <input type="text" name="translation" id="translation" class="form-control" value="<?= $_GET['translation'] ?? ''; ?>" />
                 </div>
             </div>
         </fieldset>
-        <button type="submit" class="btn btn-primary">Verify</button>
+        <button type="submit" name="verify" class="btn btn-primary">Verify</button>
         <button type="submit" name="giveAnotherWord" class="btn btn-primary">Give Another Word</button>
+        <button type="submit" name="newGame" class="btn btn-primary">New Game</button>
     </form>
 </div>
 </body>
