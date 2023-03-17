@@ -14,6 +14,8 @@ require_once 'classes/LanguageGame.php';
 // require_once 'classes/Player.php'; // Only needed for extra's
 require_once 'classes/Word.php';
 
+session_start();
+
 // Start the game
 // Don't change anything in this file
 // The LanguageGame class will be your starting point
